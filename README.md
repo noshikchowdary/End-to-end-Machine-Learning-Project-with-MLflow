@@ -1,168 +1,85 @@
-# End-to-end-Machine-Learning-Project-with-MLflow
+# End-to-end MLflow Project: Wine Quality Classification
 
+## 1. Project Overview
 
-## Workflows
+This project implements an end-to-end machine learning pipeline using MLflow for model tracking and experiment management. It trains and compares RandomForest and XGBoost classifiers on the Wine Quality dataset, providing a robust, modular, and reproducible workflow for tabular classification tasks.
 
-1. Update config.yaml
-2. Update schema.yaml
-3. Update params.yaml
-4. Update the entity
-5. Update the configuration manager in src config
-6. Update the components
-7. Update the pipeline 
-8. Update the main.py
-9. Update the app.py
+## 2. Features
+- 📊 EDA notebook with insights
+- 🛠️ Modular training pipeline
+- 📈 MLflow tracking with metrics and artifacts
+- 🤖 Dual-model training and comparison (RandomForest & XGBoost)
+- 🐳 Docker support
+- ⚙️ Config-driven architecture
 
+## 3. Tech Stack
+- Python
+- Scikit-learn
+- XGBoost
+- MLflow
+- Pandas
+- Matplotlib
+- Seaborn
 
-
-# How to run?
-### STEPS:
-
-Clone the repository
-
-```bash
-https://github.com/noshikchowdary/End-to-end-Machine-Learning-Project-with-MLflow
+## 4. Project Structure
 ```
-### STEP 01- Create a conda environment after opening the repository
-
-```bash
-conda create -n mlproj python=3.8 -y
-```
-
-```bash
-conda activate mlproj
-```
-
-
-### STEP 02- install the requirements
-```bash
-pip install -r requirements.txt
-```
-
-
-```bash
-# Finally run the following command
-python app.py
-```
-
-Now,
-```bash
-open up you local host and port
+End-to-end-Machine-Learning-Project-with-MLflow/
+├── config/              # YAML configs for pipeline and parameters
+├── notebooks/           # EDA and analysis notebooks
+│   └── eda.ipynb
+├── research/            # Experimentation and research notebooks
+├── src/
+│   └── mlProject/
+│       ├── components/  # Modular pipeline components
+│       ├── pipeline/    # Pipeline stage scripts
+│       ├── config/      # Config management
+│       ├── entity/      # Config/data entities
+│       ├── utils/       # Utility functions
+│       └── ...
+├── static/              # Static assets (CSS, JS, images)
+├── templates/           # HTML templates
+├── tests/               # Test scripts
+├── Dockerfile           # Docker support
+├── main.py              # Pipeline entrypoint
+├── app.py               # (Optional) Web app
+├── README.md            # Project documentation
+└── requirements.txt     # Python dependencies
 ```
 
+## 5. Setup Instructions
 
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/noshikchowdary/End-to-end-Machine-Learning-Project-with-MLflow.git
+   cd End-to-end-Machine-Learning-Project-with-MLflow
+   ```
+2. **Create a virtual environment and install requirements**
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # or venv\Scripts\activate on Windows
+   pip install -r requirements.txt
+   ```
+3. **Run MLflow UI**
+   ```bash
+   mlflow ui
+   # Visit http://localhost:5000 to track experiments
+   ```
+4. **Run the pipeline**
+   ```bash
+   python main.py
+   ```
+5. **Track runs and compare models in MLflow UI**
+   - Open [http://localhost:5000](http://localhost:5000) in your browser.
 
-## MLflow
+## 6. Sample MLflow Output Screenshot
+*TODO: Add screenshot of MLflow UI showing model runs and metrics.*
 
-[Documentation](https://mlflow.org/docs/latest/index.html)
+## 7. Next Steps
+- Add Streamlit dashboard for interactive model exploration
+- Deploy best model via FastAPI
+- Integrate with MLflow Model Registry
 
-
-##### cmd
-- mlflow ui
-
-### dagshub
-[dagshub](https://dagshub.com/)
-
-MLFLOW_TRACKING_URI=https://mlflow.example.com/your-tracking-uri 
-MLFLOW_TRACKING_USERNAME=your-username 
-MLFLOW_TRACKING_PASSWORD=your-password 
-python script.py
-
-Run this to export as env variables:
-
-```bash
-
-export MLFLOW_TRACKING_URI=https://mlflow.example.com/your-tracking-uri
-
-export MLFLOW_TRACKING_USERNAME=your-username 
-
-export MLFLOW_TRACKING_PASSWORD=your-password
-
-```
-
-
-
-# AWS-CICD-Deployment-with-Github-Actions
-
-## 1. Login to AWS console.
-
-## 2. Create IAM user for deployment
-
-	#with specific access
-
-	1. EC2 access : It is virtual machine
-
-	2. ECR: Elastic Container registry to save your docker image in aws
-
-
-	#Description: About the deployment
-
-	1. Build docker image of the source code
-
-	2. Push your docker image to ECR
-
-	3. Launch Your EC2 
-
-	4. Pull Your image from ECR in EC2
-
-	5. Lauch your docker image in EC2
-
-	#Policy:
-
-	1. AmazonEC2ContainerRegistryFullAccess
-
-	2. AmazonEC2FullAccess
-
-	
-## 3. Create ECR repo to store/save docker image
-    - Save the URI: 566373416292.dkr.ecr.ap-south-1.amazonaws.com/mlproj
-
-	
-## 4. Create EC2 machine (Ubuntu) 
-
-## 5. Open EC2 and Install docker in EC2 Machine:
-	
-	
-	#optinal
-
-	sudo apt-get update -y
-
-	sudo apt-get upgrade
-	
-	#required
-
-	curl -fsSL https://get.docker.com -o get-docker.sh
-
-	sudo sh get-docker.sh
-
-	sudo usermod -aG docker ubuntu
-
-	newgrp docker
-	
-# 6. Configure EC2 as self-hosted runner:
-    setting>actions>runner>new self hosted runner> choose os> then run command one by one
-
-
-# 7. Setup github secrets:
-
-    AWS_ACCESS_KEY_ID=
-
-    AWS_SECRET_ACCESS_KEY=
-
-    AWS_REGION = us-east-1
-
-    AWS_ECR_LOGIN_URI = demo>>  566373416292.dkr.ecr.ap-south-1.amazonaws.com
-
-    ECR_REPOSITORY_NAME = simple-app
-
-
-
-
-## About MLflow 
-MLflow
-
- - Its Production Grade
- - Trace all of your expriements
- - Logging & tagging your model
+## 8. Credits / Ownership
+**Custom-built and extended by Noshik Chirumamilla**
 
 
